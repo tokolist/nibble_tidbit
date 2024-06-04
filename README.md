@@ -4,6 +4,8 @@ This is alternative firmware for Nibble and Tidbit connection. Official firmware
 
 **DISCLAIMER:** this is not official alternative firmware, do everything at your own risk.
 
+![image](https://github.com/tokolist/nibble_tidbit/assets/1922990/57587465-9963-4508-98e9-b471d8c5428e)
+
 ## What are Advantages?
 
 * Split keyboard feature is officially supported by QMK and well-polished
