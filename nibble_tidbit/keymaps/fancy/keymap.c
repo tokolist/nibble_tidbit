@@ -134,11 +134,13 @@ bool led_update_kb(led_t led_state) {
 			set_big_LED_r(led_state.caps_lock ? LED_ON : LED_OFF);
 		#endif
 
-		if (is_keyboard_left()) {
-			set_bitc_LED(led_state.scroll_lock ? LED_DIM : LED_OFF);
-		} else {
-			set_bitc_LED(led_state.num_lock ? LED_DIM : LED_OFF);
-		}
+        #ifdef LED_TYPE_BITC
+			if (is_keyboard_left()) {
+				set_bitc_LED(led_state.scroll_lock ? LED_DIM : LED_OFF);
+			} else {
+				set_bitc_LED(led_state.num_lock ? LED_DIM : LED_OFF);
+			}
+		#endif
     }
     return res;
 }

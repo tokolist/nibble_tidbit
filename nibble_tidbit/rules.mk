@@ -10,7 +10,10 @@ AUDIO_ENABLE = no           # Audio output
 ENCODER_ENABLE = yes        # Use rotary encoder
 LTO_ENABLE = yes            # Link-time optimization
 
-SRC += common/bitc_led.c
+ifneq ($(LED_TYPE),NONE)
+    OPT_DEFS += -DLED_TYPE_BITC
+    SRC += common/bitc_led.c
+endif
 
 ifeq ($(KBRD),NIBBLE)
     OPT_DEFS += -DCURR_KBRD_NIBBLE

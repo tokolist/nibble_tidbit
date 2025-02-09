@@ -50,6 +50,19 @@ qmk flash -kb nullbitsco/nibble_tidbit -km fancy -e KBRD=NIBBLE -e TARGET=nullbi
 qmk flash -kb nullbitsco/nibble_tidbit -km fancy -e KBRD=TIDBIT -e TARGET=nullbitsco_tidbit_split_fancy
 ```
 
+## Alternative Boards
+
+Firmware was developed for Bit-C and tested with these boards, but it can be compiled and flashed onto other boards. You can leverage QMK Converters feature for this.
+
+https://docs.qmk.fm/feature_converters
+
+For instance, to compile it for Bit-C Pro, you should use `-e CONVERT_TO=bit_c_pro` switch, use UF2 instead of DFU bootloader flag `-bl uf2-split-left` and disable Bit-C LED `-e LED_TYPE=NONE`.
+
+```
+qmk flash -kb nullbitsco/nibble_tidbit -km default -e KBRD=NIBBLE -e TARGET=nullbitsco_nibble_split_default -bl uf2-split-left -e CONVERT_TO=bit_c_pro -e LED_TYPE=NONE
+qmk flash -kb nullbitsco/nibble_tidbit -km default -e KBRD=TIDBIT -e TARGET=nullbitsco_tidbit_split_default -bl uf2-split-right -e CONVERT_TO=bit_c_pro -e LED_TYPE=NONE
+```
+
 ## Known Issues
 
 * I had to set `ENCODER_DEFAULT_POS 0x3` for Tidbit encoder since it was skipping steps on direction change (config.h), but your mileage might vary. If you are experiencing issues with encoders, adjust encoder configuration.
